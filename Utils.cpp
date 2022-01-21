@@ -3,6 +3,7 @@
 //
 
 #include <vector>
+#include <algorithm>
 #include "Types.h"
 
 template<typename T>

@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <algorithm>
+#include <iomanip>
 #include "Types.h"
 #include "EventClock/EventClock.hpp"
 #include "BK.h"
@@ -38,14 +40,15 @@ int main(int argc, char **argv) {
 
     sort(cliques.begin(), cliques.end());
 
+    ofstream output("MaximalCliques.txt");
     for(auto &clique : cliques) {
         for(auto &vertex : clique) {
-            cout << std::setw(3) <<  vertex << ' ';
+            output << std::setw(3) <<  vertex << ' ';
         }
-        cout << endl;
+        output << endl;
     }
 
-    cout << "Size of result is " << cliques.size() << endl;
+    output << "Size of result is " << cliques.size() << endl;
     clock.printEvent("bk");
     return 0;
 }
